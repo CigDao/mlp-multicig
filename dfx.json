@@ -1,0 +1,28 @@
+{
+  "canisters": {
+    "multisig_backend": {
+      "main": "src/multisig_backend/main.mo",
+      "type": "motoko"
+    },
+    "multisig_frontend": {
+      "dependencies": [
+        "multisig_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/multisig_frontend/src/index.html"
+      },
+      "source": [
+        "src/multisig_frontend/assets",
+        "dist/multisig_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
