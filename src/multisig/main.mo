@@ -22,8 +22,13 @@ import Constants "../Constants";
 actor class Treasury() = this{
 
   stable var requestId:Nat32 = 1;
-  stable var threshold:Nat = 1;
-  stable var owner = Principal.fromText(Constants.daoCanister);
+  stable var threshold:Nat = 3;
+
+  stable var owner1 = Principal.fromText(Constants.allidoizcode);
+  stable var owner2 = Principal.fromText(Constants.cryptoisgood);
+  stable var owner3 = Principal.fromText(Constants.remco);
+  stable var owner4 = Principal.fromText(Constants.cajun);
+  stable var owner5 = Principal.fromText(Constants.notdom);
 
   private type ErrorMessage = { #message : Text;};
   private type Request = Request.Request;
@@ -37,7 +42,13 @@ actor class Treasury() = this{
   private var requests = HashMap.HashMap<Nat32,Request>( 0, Nat32.equal, func (a : Nat32) : Nat32 {a});
   private stable var memberEntries : [(Principal,Nat)] = [];
   private var members = HashMap.fromIter<Principal,Nat>(memberEntries.vals(), 0, Principal.equal, Principal.hash);
-  members.put(owner,1);
+
+  members.put(owner1,1);
+  members.put(owner2,1);
+  members.put(owner3,1);
+  members.put(owner4,1);
+  members.put(owner5,1);
+
   system func preupgrade() {
     memberEntries := Iter.toArray(members.entries());
   };

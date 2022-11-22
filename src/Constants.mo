@@ -11,4 +11,10 @@ module {
     public let WICP_Canister = "utozz-siaaa-aaaam-qaaxq-cai";
     public let WICP_AccountId = "cc659fe529756bae6f72db9937c6c60cf7ad57eb4ac5f930a75748927aab469a";
     public let Sonic_Canister = "3xwpq-ziaaa-aaaah-qcn4a-cai";
+
+    public let allidoizcode = "j26ec-ix7zw-kiwcx-ixw6w-72irq-zsbyr-4t7fk-alils-u33an-kh6rk-7qe";
+    public let cryptoisgood = "ffwmr-s7bzs-imhk6-t7z4t-zxyyq-bjcm4-4qb2o-wgh7b-p3mrb-eoyde-aae";
+    public let remco = "aanaa-xaaaa-aaaah-aaeiq-cai";
+    public let cajun = "kigia-oisx3-g7afo-m255h-st6cx-qt5g5-4jowo-ybyj4-mood6-r5s5c-iqe";
+    public let notdom = "3xwpq-ziaaa-aaaah-qcn4a-cai";
 }
