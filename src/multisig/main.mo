@@ -26,7 +26,7 @@ actor class Treasury() = this{
 
   stable var owner1 = Principal.fromText(Constants.allidoizcode);
   stable var owner2 = Principal.fromText(Constants.cryptoisgood);
-  stable var owner3 = Principal.fromText(Constants.remco);
+  stable var owner3 = Principal.fromText(Constants.remcodes);
   stable var owner4 = Principal.fromText(Constants.cajun);
   stable var owner5 = Principal.fromText(Constants.notdom);
 
