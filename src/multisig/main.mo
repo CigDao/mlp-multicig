@@ -19,16 +19,11 @@ import Error "mo:base/Error";
 import TokenService "../services/TokenService";
 import Constants "../Constants";
 
-actor class Treasury() = this{
+actor class MultiSig(owner:Principal,canisterId:Text) = this{
 
   stable var requestId:Nat32 = 1;
-  stable var threshold:Nat = 3;
-
-  stable var owner1 = Principal.fromText(Constants.allidoizcode);
-  stable var owner2 = Principal.fromText(Constants.cryptoisgood);
-  stable var owner3 = Principal.fromText(Constants.remcodes);
-  stable var owner4 = Principal.fromText(Constants.cajun);
-  stable var owner5 = Principal.fromText(Constants.notdom);
+  stable var threshold:Nat = 1;
+  stable var _canisterId:Text = canisterId;
 
   private type ErrorMessage = { #message : Text;};
   private type Request = Request.Request;
@@ -43,11 +38,7 @@ actor class Treasury() = this{
   private stable var memberEntries : [(Principal,Nat)] = [];
   private var members = HashMap.fromIter<Principal,Nat>(memberEntries.vals(), 0, Principal.equal, Principal.hash);
 
-  members.put(owner1,1);
-  members.put(owner2,1);
-  members.put(owner3,1);
-  members.put(owner4,1);
-  members.put(owner5,1);
+  members.put(owner,1);
 
   system func preupgrade() {
     memberEntries := Iter.toArray(members.entries());
@@ -223,7 +214,7 @@ actor class Treasury() = this{
   };
 
   private func _transfer(transfer : Transfer): async TokenService.TxReceipt {
-    await TokenService.transfer(Principal.fromText(transfer.recipient),transfer.amount);
+    await TokenService.transfer(Principal.fromText(transfer.recipient),transfer.amount,_canisterId);
   };
 
   private func _getTotalPower():Nat {

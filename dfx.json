@@ -3,10 +3,6 @@
     "multisig": {
       "main": "src/multisig/main.mo",
       "type": "motoko"
-    },
-    "liquidityWallet": {
-      "main": "src/multisig/main.mo",
-      "type": "motoko"
     }
   },
   "defaults": {
